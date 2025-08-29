@@ -61,20 +61,23 @@ return (
         )
       })}
     </div>
-    <button
-      onClick={() => {
-        if (arr[count].correctAnswer == ans[point]) {
-          setScore(++score)
-        }
-        setCount(++count)
-        setPoint(-1)
-        if (count <= 9) {
-          setAns([...arr[count].incorrectAnswers, arr[count].correctAnswer].toSorted())
-        }
-      }}
-    >
-      Next
-    </button>
+  <button
+  disabled={point === -1}
+  style={{ opacity: point === -1 ? 0.6 : 1 }}
+  onClick={() => {
+    if (arr[count].correctAnswer === ans[point]) {
+      setScore(score + 1)
+    }
+    setCount(count + 1)
+    setPoint(-1)
+    if (count <= 9) {
+      setAns([...arr[count + 1].incorrectAnswers, arr[count + 1].correctAnswer].toSorted())
+    }
+  }}
+>
+  Next
+</button>
+
   </div>
 )
 

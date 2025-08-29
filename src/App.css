@@ -2,14 +2,15 @@
 
 body {
   margin: 0;
+  padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   min-height: 100vh;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  color: #fff;
+  box-sizing: border-box;
 }
 
 .container {
@@ -22,12 +23,14 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .question {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: bold;
+  word-break: break-word;
 }
 
 .options {
@@ -39,20 +42,23 @@ body {
 
 .options label {
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 12px 18px;
+  padding: 14px 18px;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.25s;
   text-align: left;
   display: flex;
   align-items: center;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .options label:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.options input[type="radio"] {
+.options input[type='radio'] {
   margin-right: 12px;
   transform: scale(1.2);
   cursor: pointer;
@@ -67,6 +73,10 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
 }
 
 button:hover {
@@ -80,9 +90,34 @@ button:hover {
   color: #ffeaa7;
 }
 
-@media screen and (max-width: 600px) {
+/* ✅ Responsive Rules */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
   .question {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .options label {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .options label {
+    font-size: 0.9rem;
   }
 
   button {
